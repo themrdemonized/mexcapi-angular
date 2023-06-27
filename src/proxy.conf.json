@@ -1,0 +1,8 @@
+{
+    "/open/api": {
+        "target": "https://www.mexc.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
