@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MEXCAPIService, Pair } from '../services/mexcapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +15,7 @@ export class HomePageComponent implements OnInit {
   showLoader: boolean = false;
   errorMsg?: string;
 
-  constructor(private service:MEXCAPIService) {}
+  constructor(private service:MEXCAPIService, private router:Router) {}
 
   async ngOnInit() {
     this.showLoader = true;
@@ -36,8 +37,6 @@ export class HomePageComponent implements OnInit {
   }
 
   async openPairPage(pair: string) {
-    const data = await this.service.getMarketDataByPair(pair);
-    console.log("opened ", pair)
-    console.log(data.data)
+    this.router.navigate(['/pair', pair]);
   }
 }

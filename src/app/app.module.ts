@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomePageComponent } from './home-page/home-page.component'; 
+import { HomePageComponent } from './home-page/home-page.component';
+import { PairPageComponent } from './pair-page/pair-page.component'; 
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     HeaderComponent,
     PageNotFoundComponent,
     HomePageComponent,
+    PairPageComponent,
   ],
   imports: [
     BrowserModule,
