@@ -1,0 +1,12 @@
+.card-title {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.spinner {
+    visibility: hidden;
+    &.visible {
+        visibility: visible;
+    }
+}

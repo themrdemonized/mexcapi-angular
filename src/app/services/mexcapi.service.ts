@@ -52,7 +52,7 @@ export class MEXCAPIService {
       console.error(error);
       if (axios.isAxiosError(error)) {
         return {
-          msg: error.message,
+          msg: error.response?.data?.msg || error.message,
           code: error.response?.status,
           data: []
         } as MEXCResponse<T>

@@ -1,1 +1,35 @@
-<p>{{ pair }}</p>
+<div class="content" role="main">
+    <div *ngIf="showLoader; else ngContent">
+        <mat-spinner>
+        </mat-spinner>
+    </div>
+    
+    <ng-template #ngContent>
+        <div class="container" *ngIf="errorMsg; else dataTemplate">
+            <h1 class="center">{{ errorMsg }}</h1>
+        </div>
+    
+        <ng-template #dataTemplate>
+            <mat-card *ngIf="data">
+                <mat-card-header>
+                    <mat-card-title class="card-title">
+                        <h1>{{ pair }}</h1>
+                        <mat-spinner 
+                            [class.spinner]="true"
+                            [class.visible]="refreshingData"
+                            [diameter]="24"
+                        ></mat-spinner>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Volume: </strong>{{ data.volume }}</p>
+                    <p><strong>High: </strong>{{ data.high }}</p>
+                    <p><strong>Low: </strong>{{ data.low }}</p>
+                    <p><strong>Last: </strong>{{ data.last }}</p>
+                    <p><strong>Change: </strong>{{ data.change_rate }}</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-template>
+    </ng-template>
+</div>
+
