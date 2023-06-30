@@ -14,13 +14,11 @@ export class PairPageComponent implements OnInit, OnDestroy {
   private sub?: Subscription;
   showLoader: boolean = false;
   errorMsg?: string;
-  data: MarketData;
+  data?: MarketData;
   refreshingData: boolean = false;
   refreshDataHandle?: any;
 
-  constructor(private route: ActivatedRoute, private service: MEXCAPIService) {
-    this.data = {} as MarketData
-  }
+  constructor(private route: ActivatedRoute, private service: MEXCAPIService) {}
 
   ngOnInit(): void {
     this.showLoader = true;
@@ -43,7 +41,7 @@ export class PairPageComponent implements OnInit, OnDestroy {
   }
 
   async refreshData() {
-    if (this.refreshingData) return;
+    if (!this.data || this.refreshingData) return;
     this.refreshingData = true;
     const data = await this.service.getMarketDataByPair(this.pair);
     if (data.code === 200) {
